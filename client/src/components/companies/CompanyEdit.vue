@@ -16,10 +16,7 @@
                       label="Razão social"
                       v-model.trim="company.razao_social"
                       maxlength="250"
-                      autofocus
-                      :rules="rules.razao_social"
-                      clearable
-                      :clear-icon="'fas fa-backspace fa-sm'"
+                      readonly
                     />
                   </v-flex>
                 </v-layout>
@@ -287,14 +284,6 @@ export default {
         conta: null
       },
       rules: {
-        razao_social: [
-          v => !!v || 'Razão social é obrigatório',
-          v => this.$utils.countLength(v, 5) || 'Razão social deve ter pelo menos 5 caracteres'
-        ],
-        cnpj: [
-          v => !!v || 'CNPJ é obrigatório',
-          v => this.$utils.validatesCNPJ(v) || 'CNPJ deve ser válido'
-        ],
         email: [
           v => this.$utils.checkEmptyOrValidEmail(v) || 'E-mail deve ser válido'
         ],
